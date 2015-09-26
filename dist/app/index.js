@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 var PORT = process.env.PORT || 3000;
-var HOST = process.env.HOST || 'localhost';
+var HOST = process.env.HOST || '0.0.0.0';
 
 app.get('/', function (req, res) {
   res.status(200).send('hello!');
