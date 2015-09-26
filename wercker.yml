@@ -30,7 +30,7 @@ build:
 deploy:
   production:
     - install-packages:
-        packages: openssh-client
+        packages: openssh-client rsync
     - add-to-known_hosts:
         hostname: rpf.me
         local: true
