@@ -45,7 +45,7 @@ deploy:
     - sjoerdmulder/rsync-deploy:
         host: 178.62.17.220
         user: root
-        directory: /var/www/rpf-production
+        directory: $APP_PATH
         sshkey: $PRIVATEKEY_PATH
     - script:
         name: npm install
@@ -55,7 +55,7 @@ deploy:
               -o UserKnownHostsFile=/dev/null \
               -o StrictHostKeyChecking=no \
               root@178.62.17.220 \
-              "cd /var/www/rpf-production && npm install --production"
+              "cd $APP_PATH && npm install --production"
     - script:
         name: start app
         code: |
@@ -64,6 +64,6 @@ deploy:
               -o UserKnownHostsFile=/dev/null \
               -o StrictHostKeyChecking=no \
               root@178.62.17.220 \
-              "cd /var/www/rpf-production && \
+              "cd $APP_PATH && \
                pm2 stop rpf.me -s && \
                pm2 start dist/app/index.js --name rpf.me -i 2"
