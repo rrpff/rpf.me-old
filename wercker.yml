@@ -29,6 +29,8 @@ build:
 
 deploy:
   production:
+    - install-packages:
+        packages: openssh-client
     - add-to-known_hosts:
         hostname: rpf.me
         local: true
