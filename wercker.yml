@@ -28,7 +28,7 @@ build:
           echo "npm version $(npm -v)"
 
 deploy:
-  steps: &defaults
+  steps:
     - install-packages:
         packages: openssh-client rsync
     - add-to-known_hosts:
