@@ -11,3 +11,5 @@ app.get('/', function (req, res) {
 app.listen(PORT, HOST, console.log.bind(console,
   'App %d listening on %s:%d', process.pid, HOST, PORT)
 );
+
+module.exports = app;
