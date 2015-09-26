@@ -29,7 +29,7 @@ build:
 
 deploy:
   production:
-    - add-to-known-hosts:
+    - add-to-known_hosts:
         hostname: rpf.me
     - mktemp:
         envvar: PRIVATEKEY_PATH
