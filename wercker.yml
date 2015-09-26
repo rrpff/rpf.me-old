@@ -48,7 +48,7 @@ deploy:
         directory: /var/www/rpf-production
         sshkey: $PRIVATEKEY_PATH
     - script:
-        name: start app
+        name: npm install
         code: |
           ssh -i $PRIVATEKEY_PATH \
               -l root \
