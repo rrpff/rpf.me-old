@@ -66,3 +66,5 @@ deploy:
               root@$SERVER_HOSTNAME \
               "cd $APP_PATH && \
                pm2 status | grep $APP_PROCESS_NAME && pm2 reload $APP_PROCESS_NAME || PORT=$PORT HOST=$HOST pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i $APP_INSTANCE_COUNT"
+  after-steps:
+    - git-tag
