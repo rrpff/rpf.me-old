@@ -28,7 +28,7 @@ build:
           echo "npm version $(npm -v)"
 
 deploy:
-  production:
+  default: &defaults
     - install-packages:
         packages: openssh-client rsync
     - add-to-known_hosts:
@@ -67,3 +67,6 @@ deploy:
               "cd $APP_PATH && \
                pm2 stop rpf.me -s && \
                pm2 start dist/app/index.js --name rpf.me -i 2"
+
+  production:
+    <<: &defaults
