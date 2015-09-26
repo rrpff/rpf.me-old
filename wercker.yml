@@ -65,8 +65,8 @@ deploy:
               -o StrictHostKeyChecking=no \
               root@$SERVER_HOSTNAME \
               "cd $APP_PATH && \
-               pm2 stop rpf.me -s && \
-               pm2 start dist/app/index.js --name rpf.me -i 2"
+               pm2 stop $APP_PROCESS_NAME -s && \
+               pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i 2"
 
   production:
     <<: &defaults
