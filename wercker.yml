@@ -26,3 +26,38 @@ build:
         code: |
           echo "node version $(node -v)"
           echo "npm version $(npm -v)"
+
+deploy:
+  production:
+    - add-to-known-hosts:
+        hostname: rpf.me
+    - mktemp:
+        envvar: PRIVATEKEY_PATH
+    - create-file:
+        name: write key
+        filename: $PRIVATEKEY_PATH
+        content: $DIGITAL_OCEAN_PRIVATE
+        overwrite: true
+        hide-from-log: true
+    - rsync-deploy:
+        host: 178.62.17.220
+        directory: /var/www/rpf-production
+        sshkey: $PRIVATEKEY_PATH
+    - script:
+        name: start app
+        code: |
+          ssh -i $PRIVATEKEY_PATH \
+              -l root \
+              -o UserKnownHostsFile=/dev/null \
+              -o StrictHostKeyChecking=no \
+              root@178.62.17.220 \
+              "cd /var/www/rpf-production && npm install --production"
+    - script:
+        name: start app
+        code: |
+          ssh -i $PRIVATEKEY_PATH \
+              -l root \
+              -o UserKnownHostsFile=/dev/null \
+              -o StrictHostKeyChecking=no \
+              root@178.62.17.220 \
+              "pm2 start /var/www/rpf-production --name rpf.me"
