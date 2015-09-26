@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node dist/app/index.js",
-    "test": "echo 'no tests yet!'"
+    "test": "mocha dist/test/"
   },
   "author": "Richard Foster <richard@rpf.me> (http://rpf.me)",
   "license": "MIT",
