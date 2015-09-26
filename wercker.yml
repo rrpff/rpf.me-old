@@ -32,7 +32,7 @@ deploy:
     - install-packages:
         packages: openssh-client rsync
     - add-to-known_hosts:
-        hostname: 178.62.17.220
+        hostname: $SERVER_HOSTNAME
         local: true
     - mktemp:
         envvar: PRIVATEKEY_PATH
@@ -43,7 +43,7 @@ deploy:
         overwrite: true
         hide-from-log: true
     - sjoerdmulder/rsync-deploy:
-        host: 178.62.17.220
+        host: $SERVER_HOSTNAME
         user: root
         directory: $APP_PATH
         sshkey: $PRIVATEKEY_PATH
@@ -54,7 +54,7 @@ deploy:
               -l root \
               -o UserKnownHostsFile=/dev/null \
               -o StrictHostKeyChecking=no \
-              root@178.62.17.220 \
+              root@$SERVER_HOSTNAME \
               "cd $APP_PATH && npm install --production"
     - script:
         name: start app
@@ -63,7 +63,7 @@ deploy:
               -l root \
               -o UserKnownHostsFile=/dev/null \
               -o StrictHostKeyChecking=no \
-              root@178.62.17.220 \
+              root@$SERVER_HOSTNAME \
               "cd $APP_PATH && \
                pm2 stop rpf.me -s && \
                pm2 start dist/app/index.js --name rpf.me -i 2"
