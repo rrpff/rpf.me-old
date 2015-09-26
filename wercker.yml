@@ -28,7 +28,7 @@ build:
           echo "npm version $(npm -v)"
 
 deploy:
-  default: &defaults
+  steps: &defaults
     - install-packages:
         packages: openssh-client rsync
     - add-to-known_hosts:
@@ -67,7 +67,3 @@ deploy:
               "cd $APP_PATH && \
                pm2 stop $APP_PROCESS_NAME -s && \
                pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i 2"
-
-  staging: *defaults
-
-  production: *defaults
