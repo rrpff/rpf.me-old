@@ -31,6 +31,7 @@ deploy:
   production:
     - add-to-known_hosts:
         hostname: rpf.me
+        local: true
     - mktemp:
         envvar: PRIVATEKEY_PATH
     - create-file:
