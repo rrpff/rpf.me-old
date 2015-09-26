@@ -64,4 +64,6 @@ deploy:
               -o UserKnownHostsFile=/dev/null \
               -o StrictHostKeyChecking=no \
               root@178.62.17.220 \
-              "pm2 start /var/www/rpf-production --name rpf.me"
+              "cd /var/www/rpf-production && \
+               pm2 stop rpf.me && \
+               pm2 start dist/app/index.js --name rpf.me -i 2"
