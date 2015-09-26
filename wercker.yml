@@ -1,0 +1,16 @@
+box: nodesource/jessie:4.1.0
+
+build:
+  steps:
+    - script:
+        name: export environment variables
+        code: |
+          export NODE_ENV='development'
+          export PORT=5000
+    - npm-install
+    - npm-test
+    - script:
+        name: Print versions
+        code: |
+          echo "node version $(node -v)"
+          echo "npm version $(npm -v)"
