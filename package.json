@@ -1,0 +1,17 @@
+{
+  "name": "rpf.me",
+  "version": "0.0.0",
+  "description": "My blog, and other stuff.",
+  "engines": {
+    "node": "4.1.0"
+  },
+  "scripts": {
+    "start": "node dist/app/index.js",
+    "test": "echo 'no tests yet!'"
+  },
+  "author": "Richard Foster <richard@rpf.me> (http://rpf.me)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
