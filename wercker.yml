@@ -1,5 +1,17 @@
 box: nodesource/jessie:4.1.0
 
+dev:
+  steps:
+    - script:
+        name: export environment variables
+        code: |
+          export NODE_ENV='development'
+          export PORT=5000
+    - npm-install
+    - internal/watch:
+        code: npm start
+        reload: true
+
 build:
   steps:
     - script:
