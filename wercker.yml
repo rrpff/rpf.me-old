@@ -44,6 +44,7 @@ deploy:
         hide-from-log: true
     - sjoerdmulder/rsync-deploy:
         host: 178.62.17.220
+        user: root
         directory: /var/www/rpf-production
         sshkey: $PRIVATEKEY_PATH
     - script:
