@@ -69,7 +69,7 @@ deploy:
                pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i 2"
 
   staging:
-    <<: &defaults
+    <<: *defaults
 
   production:
-    <<: &defaults
+    <<: *defaults
