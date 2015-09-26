@@ -39,7 +39,7 @@ deploy:
         content: $DIGITAL_OCEAN_PRIVATE
         overwrite: true
         hide-from-log: true
-    - rsync-deploy:
+    - sjoerdmulder/rsync-deploy:
         host: 178.62.17.220
         directory: /var/www/rpf-production
         sshkey: $PRIVATEKEY_PATH
