@@ -65,6 +65,4 @@ deploy:
               -o StrictHostKeyChecking=no \
               root@$SERVER_HOSTNAME \
               "cd $APP_PATH && \
-               echo "MADE IT THIS FAR" && \
-               pm2 stop $APP_PROCESS_NAME -s && \
-               pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i 2"
+               pm2 status | grep $APP_PROCESS_NAME && pm2 reload $APP_PROCESS_NAME || pm2 start dist/app/index.js --name $APP_PROCESS_NAME -i 2
