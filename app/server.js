@@ -1,8 +1,8 @@
 const express = require('express');
+const { join } = require('path');
+
 const app = express();
 
-app.get('/', function (req, res) {
-  res.status(200).send('hello!');
-});
+app.use(express.static(join(__dirname, 'static')));
 
 module.exports = app;
