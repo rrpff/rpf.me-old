@@ -7,7 +7,7 @@ const ArticlePage = require('./components/pages/article-page');
 
 module.exports = (
   <Route path="/" handler={BaseLayout}>
-    <DefaultRoute handler={HomePage} />
+    <DefaultRoute name="homepage" handler={HomePage} />
     <Route name="sample-article" path="sample" handler={ArticlePage} />
   </Route>
 );
