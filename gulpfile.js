@@ -10,11 +10,11 @@ var livereactload = require('livereactload');
 
 var config = {
   clientScripts: {
-    src: 'app/client.js',
+    src: 'app/client.jsx',
     dest: 'dist/app/static'
   },
   serverScripts: {
-    src: ['app/*.js', 'app/**/*.{js,jsx}', '!app/{client.js}'],
+    src: ['app/*.js', 'app/**/*.{js,jsx}', '!app/{client.jsx}'],
     dest: 'dist/app',
   },
   testScripts: {
