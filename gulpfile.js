@@ -66,7 +66,6 @@ gulp.task('styles', function () {
 function release (src, dest) {
   return function () {
     gulp.src(src)
-        .pipe(plumber())
         .pipe(babel({ stage: 0 }))
         .pipe(gulp.dest(dest));
   }
