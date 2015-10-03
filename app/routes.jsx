@@ -1,3 +1,4 @@
+const React = require('react');
 const { Route, Link } = require('react-router');
 
 const BaseLayout = require('./components/layouts/base');
