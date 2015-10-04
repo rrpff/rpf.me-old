@@ -21,7 +21,7 @@ build:
           export PORT=5000
     - npm-install
     - hgen/gulp
-    - npm-test
+    # - npm-test
 
 deploy:
   steps:
